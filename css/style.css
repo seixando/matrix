@@ -1647,7 +1647,7 @@ ul { list-style: none; }
     display: flex;
     align-items: center;
     gap: 2rem;
-    margin-top: 3rem;
+    margin: 3rem auto 0;
     padding: 1.75rem 2rem;
     background: var(--bg-card);
     border: 1px solid var(--border-subtle);
