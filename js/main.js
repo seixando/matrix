@@ -195,8 +195,9 @@
     });
 
     /* ─── Copyright year ────────────────────── */
-    var yearEl = document.getElementById('copyright-year');
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
+    var currentYear = new Date().getFullYear();
+    document.querySelectorAll('#copyright-year, .copyright-year')
+      .forEach(function(el) { el.textContent = currentYear; });
 
     /* ─── Matrix Code Rain ───────────────────── */
     (function () {
@@ -504,9 +505,6 @@
         if (btnDecline) btnDecline.addEventListener('click', function () { dismiss('declined'); });
     }());
 
-    /* ─── Copyright year (dynamic) ─────────── */
-    var yearEl = document.getElementById('copyright-year');
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
     /* ─── Performance: reduce motion if preferred */
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
