@@ -1639,6 +1639,74 @@ ul { list-style: none; }
     font-size: 0.8125rem;
 }
 
+/* ═══════════════════════════════════════════════
+   ABOUT FOUNDER CARD
+   ═══════════════════════════════════════════════ */
+.about-founder {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 3rem;
+    padding: 1.75rem 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    max-width: 640px;
+}
+
+.founder-photo {
+    width: 220px;
+    height: 147px;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: var(--radius-md);
+    flex-shrink: 0;
+    filter: brightness(1.05) contrast(1.05);
+}
+
+.founder-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.founder-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.founder-role {
+    font-size: 0.8125rem;
+    font-family: var(--font-mono);
+    color: var(--accent);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.founder-bio {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0.5rem 0 0;
+}
+
+@media (max-width: 640px) {
+    .about-founder {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+        padding: 1.25rem;
+    }
+
+    .founder-photo {
+        width: 100%;
+        height: 180px;
+    }
+}
+
 /* footer CNPJ line */
 .footer-bottom p + p {
     margin-top: 0.25rem;
