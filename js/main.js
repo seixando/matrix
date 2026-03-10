@@ -121,29 +121,43 @@
         });
     });
 
-    /* ─── Contact form (demo handler) ────────── */
+    /* ─── Contact form → Formspree ──────────── */
     var form = document.getElementById('contactForm');
     if (form) {
         form.addEventListener('submit', function (e) {
             e.preventDefault();
             var btn = form.querySelector('button[type="submit"]');
-            var originalText = btn.innerHTML;
+            var originalHTML = btn.innerHTML;
 
             btn.innerHTML = '<span>Enviando...</span>';
             btn.disabled = true;
 
-            // Simulate send (replace with real endpoint)
-            setTimeout(function () {
-                btn.innerHTML = '<span>✓ Mensagem enviada!</span>';
-                btn.style.background = 'var(--accent)';
-                form.reset();
-
-                setTimeout(function () {
-                    btn.innerHTML = originalText;
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(function (res) {
+                if (res.ok) {
+                    btn.innerHTML = '<span>✓ Mensagem enviada!</span>';
+                    btn.style.background = 'var(--accent)';
+                    form.reset();
+                    setTimeout(function () {
+                        btn.innerHTML = originalHTML;
+                        btn.disabled = false;
+                        btn.style.background = '';
+                    }, 3000);
+                } else {
+                    btn.innerHTML = '<span>Erro ao enviar. Tente novamente.</span>';
                     btn.disabled = false;
-                    btn.style.background = '';
-                }, 2500);
-            }, 1200);
+                    setTimeout(function () { btn.innerHTML = originalHTML; }, 3000);
+                }
+            })
+            .catch(function () {
+                btn.innerHTML = '<span>Sem conexão. Tente novamente.</span>';
+                btn.disabled = false;
+                setTimeout(function () { btn.innerHTML = originalHTML; }, 3000);
+            });
         });
     }
 
