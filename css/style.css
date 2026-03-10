@@ -1494,8 +1494,8 @@ ul { list-style: none; }
 
 /* ─── Terminal live additions ─────────────── */
 .terminal-body {
-    min-height: 320px;
-    max-height: 320px;
+    min-height: 620px;
+    max-height: 620px;
     overflow-y: auto;
 }
 
