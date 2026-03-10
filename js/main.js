@@ -463,6 +463,10 @@
         setTimeout(typeNext, 600);
     }());
 
+    /* ─── Copyright year (dynamic) ─────────── */
+    var yearEl = document.getElementById('copyright-year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
     /* ─── Performance: reduce motion if preferred */
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         document.documentElement.style.setProperty('--duration-slow', '0ms');
