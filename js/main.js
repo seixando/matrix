@@ -194,6 +194,10 @@
         });
     });
 
+    /* ─── Copyright year ────────────────────── */
+    var yearEl = document.getElementById('copyright-year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
     /* ─── Matrix Code Rain ───────────────────── */
     (function () {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
