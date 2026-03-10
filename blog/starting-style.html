@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@starting-style: animando elementos que entram no DOM com CSS puro · Matrix Blog</title>
+    <meta name="description" content="A regra CSS que resolve o problema mais chato de animação: elementos que aparecem do nada. Chega de setTimeout para fingir uma transição de entrada.">
+    <link rel="canonical" href="https://matrix-wheat-xi.vercel.app/blog/starting-style.html">
+
+    <meta property="og:title" content="@starting-style: animando elementos que entram no DOM com CSS puro">
+    <meta property="og:description" content="A regra CSS que resolve o problema mais chato de animação: elementos que aparecem do nada. Chega de setTimeout para fingir uma transição de entrada.">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-03-31">
+    <meta property="article:tag" content="CSS">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/blog.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="/assets/images/logo.webp" alt="Matrix Logo" class="logo-img" width="36" height="36">
+                <span class="logo-text">Matrix</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/#servicos">Serviços</a></li>
+                <li><a href="/#cases">Cases</a></li>
+                <li><a href="/#processo">Processo</a></li>
+                <li><a href="/#contato">Contato</a></li>
+                <li><a href="/blog/">Blog</a></li>
+            </ul>
+            <a href="/#contato" class="nav-cta">Iniciar Projeto</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menu de navegação">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <article class="post-article">
+
+        <header class="post-header">
+            <div class="post-header__tags">
+                <span class="post-header__tag">CSS</span>
+            </div>
+            <h1>@starting-style: animando elementos que entram no DOM com CSS puro</h1>
+            <p class="post-header__desc">A regra CSS que resolve o problema mais chato de animação: elementos que aparecem do nada. Chega de <code>setTimeout</code> para fingir uma transição de entrada.</p>
+            <div class="post-header__meta">
+                <time datetime="2026-03-31">31 mar 2026</time>
+                <span class="post-card__sep">·</span>
+                <span>6 min de leitura</span>
+            </div>
+        </header>
+
+        <div class="post-body">
+
+            <p>Você já escreveu algo assim?</p>
+
+<pre><code>// Adiciona o elemento sem a classe de animação
+element.classList.remove('visible');
+document.body.appendChild(element);
+
+// Espera um frame para o browser "ver" o estado inicial
+setTimeout(() => {
+  element.classList.add('visible');
+}, 10);</code></pre>
+
+            <p>Esse <code>setTimeout(fn, 10)</code> é um hack. Você está esperando o browser renderizar um frame com o elemento invisível para então ativar a transição de entrada. Funciona, mas é frágil e semanticamente errado.</p>
+
+            <p><code>@starting-style</code> resolve isso em CSS.</p>
+
+            <h2>Por que transições não funcionam na entrada</h2>
+
+            <p>As transições CSS animam <em>entre dois estados</em>. Quando um elemento aparece no DOM, não há estado anterior — ele simplesmente existe. O browser não tem de onde partir para criar a animação.</p>
+
+            <p><code>@starting-style</code> define exatamente esse estado de partida. Você declara como o elemento deve <em>parecer antes da primeira renderização</em>, e o browser usa isso como ponto de início da transição.</p>
+
+            <h2>Sintaxe</h2>
+
+<pre><code>.notificacao {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity .3s, transform .3s;
+}
+
+@starting-style {
+  .notificacao {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}</code></pre>
+
+            <p>Quando <code>.notificacao</code> entra no DOM (ou quando <code>display</code> muda de <code>none</code> para qualquer outro valor), o browser lê o <code>@starting-style</code> como estado inicial e anima até o estado normal definido no seletor principal.</p>
+
+            <p>Zero JavaScript para a animação de entrada.</p>
+
+            <h2>Animando a saída também</h2>
+
+            <p>Para animar a saída com CSS puro, combine com a transição de <code>display</code> usando <code>allow-discrete</code>:</p>
+
+<pre><code>.notificacao {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity .3s,
+    transform .3s,
+    display .3s allow-discrete; /* espera a transição terminar antes de display:none */
+}
+
+.notificacao.saindo {
+  opacity: 0;
+  transform: translateY(-12px);
+  display: none;
+}
+
+@starting-style {
+  .notificacao {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}</code></pre>
+
+            <p>Agora a entrada e a saída são animadas. O JavaScript só precisa adicionar/remover classes ou o elemento do DOM — nenhuma lógica de timing.</p>
+
+            <h2>Com Popover e Dialog</h2>
+
+            <p><code>@starting-style</code> funciona nativamente com a Popover API e com <code>&lt;dialog&gt;</code>:</p>
+
+<pre><code>[popover] {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity .2s, transform .2s,
+              display .2s allow-discrete,
+              overlay .2s allow-discrete;
+}
+
+/* Estado de saída */
+[popover]:not(:popover-open) {
+  opacity: 0;
+  transform: scale(.95);
+}
+
+/* Estado de entrada */
+@starting-style {
+  [popover]:popover-open {
+    opacity: 0;
+    transform: scale(.95);
+  }
+}</code></pre>
+
+            <p>A propriedade <code>overlay</code> controla quando o elemento sai do top layer — sem ela na transição, o popover seria removido da camada imediatamente, interrompendo a animação de saída.</p>
+
+            <h2>Casos de uso</h2>
+
+            <ul>
+                <li><strong>Toasts e notificações</strong> — entram e saem com slide suave</li>
+                <li><strong>Modais e popovers</strong> — fade + scale sem uma linha de JS</li>
+                <li><strong>Itens de lista dinâmica</strong> — animar cada item adicionado à lista</li>
+                <li><strong>Estados de loading</strong> — skeleton que fade-in quando o conteúdo chega</li>
+            </ul>
+
+            <h2>Aninhamento com outras regras</h2>
+
+            <p><code>@starting-style</code> pode ser escrito dentro do seletor (CSS nesting) ou fora como bloco separado. As duas formas são equivalentes:</p>
+
+<pre><code>/* Forma 1: separado */
+.card { opacity: 1; transition: opacity .3s; }
+@starting-style { .card { opacity: 0; } }
+
+/* Forma 2: aninhado (CSS nesting) */
+.card {
+  opacity: 1;
+  transition: opacity .3s;
+
+  @starting-style {
+    opacity: 0;
+  }
+}</code></pre>
+
+            <p>A forma aninhada é mais legível — o estado inicial fica junto com o seletor ao qual pertence.</p>
+
+            <h2>Suporte</h2>
+
+            <p>Chrome 117+, Edge 117+, Firefox 129+, Safari 17.5+. Baseline amplamente disponível. Sem necessidade de fallback para projetos que descartam browsers legados.</p>
+
+            <hr>
+
+            <p><code>@starting-style</code> fecha a lacuna mais frustrante das animações CSS. Junto com a Popover API e o Anchor Positioning, forma uma trinca que elimina boa parte do JavaScript escrito hoje apenas para controlar aparência. Vale aprender os três juntos — eles se complementam.</p>
+
+        </div>
+
+        <footer class="post-footer">
+            <a href="/blog/" class="post-footer__back">← Todos os artigos</a>
+            <a href="/#contato" class="btn btn--primary">Iniciar um projeto →</a>
+        </footer>
+
+    </article>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="nav-logo">
+                        <img src="/assets/images/logo.webp" alt="Matrix Logo" class="logo-img" width="36" height="36" loading="lazy">
+                        <span class="logo-text">Matrix</span>
+                    </a>
+                    <p class="footer-tagline">Tecnologia e Inovação</p>
+                </div>
+                <div class="footer-links">
+                    <a href="/#servicos">Serviços</a>
+                    <a href="/#cases">Cases</a>
+                    <a href="/#processo">Processo</a>
+                    <a href="/blog/">Blog</a>
+                    <a href="/#contato">Contato</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>CNPJ 57.744.307/0001-14 — Matrix Tecnologia e Inovação LTDA</p>
+                <p>&copy; <span class="copyright-year">2026</span> Matrix Tecnologia e Inovação. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

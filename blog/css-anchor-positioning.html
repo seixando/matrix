@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Anchor Positioning: tooltips e dropdowns sem JavaScript · Matrix Blog</title>
+    <meta name="description" content="A propriedade CSS que finalmente permite posicionar qualquer elemento em relação a outro sem uma linha de JavaScript. Fim dos cálculos de getBoundingClientRect.">
+    <link rel="canonical" href="https://matrix-wheat-xi.vercel.app/blog/css-anchor-positioning.html">
+
+    <meta property="og:title" content="CSS Anchor Positioning: tooltips e dropdowns sem JavaScript">
+    <meta property="og:description" content="A propriedade CSS que finalmente permite posicionar qualquer elemento em relação a outro sem uma linha de JavaScript.">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-03-17">
+    <meta property="article:tag" content="CSS">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/blog.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="/assets/images/logo.webp" alt="Matrix Logo" class="logo-img" width="36" height="36">
+                <span class="logo-text">Matrix</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/#servicos">Serviços</a></li>
+                <li><a href="/#cases">Cases</a></li>
+                <li><a href="/#processo">Processo</a></li>
+                <li><a href="/#contato">Contato</a></li>
+                <li><a href="/blog/">Blog</a></li>
+            </ul>
+            <a href="/#contato" class="nav-cta">Iniciar Projeto</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menu de navegação">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <article class="post-article">
+
+        <header class="post-header">
+            <div class="post-header__tags">
+                <span class="post-header__tag">CSS</span>
+            </div>
+            <h1>CSS Anchor Positioning: tooltips e dropdowns sem JavaScript</h1>
+            <p class="post-header__desc">A propriedade CSS que finalmente permite posicionar qualquer elemento em relação a outro sem uma linha de JavaScript. Fim dos cálculos de <code>getBoundingClientRect</code>.</p>
+            <div class="post-header__meta">
+                <time datetime="2026-03-17">17 mar 2026</time>
+                <span class="post-card__sep">·</span>
+                <span>7 min de leitura</span>
+            </div>
+        </header>
+
+        <div class="post-body">
+
+            <p>Toda vez que você precisou posicionar um tooltip, um dropdown ou um popover do lado certo do elemento que o disparou, foi ao JavaScript buscar ajuda. <code>getBoundingClientRect()</code>, cálculo de scroll, lógica para não sair da viewport — e tudo isso para mover um elemento de lugar.</p>
+
+            <p>A <strong>CSS Anchor Positioning API</strong> elimina esse trabalho. Você declara um elemento como âncora e o CSS faz o resto.</p>
+
+            <h2>O problema clássico</h2>
+
+            <p>Tooltips vivem no DOM em locais arbitrários, mas precisam aparecer <em>ao lado</em> de um elemento específico. Antes, a solução era:</p>
+
+            <ol>
+                <li>Ouvir o evento de hover/click</li>
+                <li>Chamar <code>getBoundingClientRect()</code> no elemento alvo</li>
+                <li>Calcular posição levando em conta scroll da página</li>
+                <li>Aplicar <code>position: fixed</code> com <code>top</code> e <code>left</code> via JavaScript</li>
+                <li>Lidar com casos de borda na borda da viewport</li>
+            </ol>
+
+            <p>Com Anchor Positioning, você escreve CSS.</p>
+
+            <h2>Conceito básico</h2>
+
+            <p>Dois novos mecanismos: <strong>declarar a âncora</strong> e <strong>referenciar a âncora</strong>.</p>
+
+<pre><code>/* 1. Declara o elemento como âncora */
+.btn-ajuda {
+  anchor-name: --btn-ajuda;
+}
+
+/* 2. Posiciona o tooltip em relação à âncora */
+.tooltip {
+  position: absolute;
+  position-anchor: --btn-ajuda;
+
+  /* cola a borda superior do tooltip na borda inferior da âncora */
+  top: anchor(bottom);
+  /* centraliza horizontalmente */
+  left: anchor(center);
+  translate: -50% 0;
+}</code></pre>
+
+            <p>Sem JavaScript. Sem event listener. O browser calcula a posição e atualiza automaticamente quando o layout muda.</p>
+
+            <h2>A função <code>anchor()</code></h2>
+
+            <p>A função <code>anchor()</code> resolve para a posição de uma borda específica da âncora. Os valores disponíveis são:</p>
+
+            <table>
+                <thead>
+                    <tr><th>Valor</th><th>Resolve para</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>anchor(top)</code></td><td>Borda superior da âncora</td></tr>
+                    <tr><td><code>anchor(bottom)</code></td><td>Borda inferior da âncora</td></tr>
+                    <tr><td><code>anchor(left)</code></td><td>Borda esquerda da âncora</td></tr>
+                    <tr><td><code>anchor(right)</code></td><td>Borda direita da âncora</td></tr>
+                    <tr><td><code>anchor(center)</code></td><td>Centro horizontal ou vertical</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Posicionamento automático com <code>position-try-fallbacks</code></h2>
+
+            <p>O que realmente elimina a lógica JavaScript é o posicionamento automático. Você define as posições preferidas e o browser escolhe a que cabe na viewport:</p>
+
+<pre><code>.tooltip {
+  position: absolute;
+  position-anchor: --btn-ajuda;
+  top: anchor(bottom);
+  left: anchor(center);
+  translate: -50% 8px;
+
+  /* se não couber abaixo, tenta acima */
+  position-try-fallbacks: flip-block;
+}</code></pre>
+
+            <p><code>flip-block</code> inverte o eixo vertical. <code>flip-inline</code> inverte o eixo horizontal. Você pode combinar os dois, ou definir posições customizadas com <code>@position-try</code>:</p>
+
+<pre><code>@position-try --tooltip-esquerda {
+  top: anchor(center);
+  right: calc(anchor(left) - 8px);
+  translate: 0 -50%;
+}
+
+.tooltip {
+  position-try-fallbacks: --tooltip-esquerda, flip-block;
+}</code></pre>
+
+            <h2>Sem âncora no mesmo parent</h2>
+
+            <p>Um detalhe importante: âncora e elemento posicionado <strong>não precisam estar no mesmo pai no DOM</strong>. Isso é o que torna a API tão poderosa — você pode ter o tooltip no final do <code>&lt;body&gt;</code> (para evitar problemas de <code>overflow: hidden</code>) e ainda assim posicioná-lo relativo a qualquer elemento da página.</p>
+
+<pre><code>&lt;button class="btn-ajuda"&gt;?&lt;/button&gt;
+
+&lt;!-- em qualquer lugar do DOM --&gt;
+&lt;div class="tooltip" role="tooltip"&gt;
+  Texto de ajuda aqui
+&lt;/div&gt;</code></pre>
+
+            <h2>Suporte e fallback</h2>
+
+            <p>Chrome 125+ tem suporte completo. Para browsers sem suporte, use <code>@supports</code>:</p>
+
+<pre><code>@supports (anchor-name: --test) {
+  .tooltip {
+    position: absolute;
+    position-anchor: --btn-ajuda;
+    top: anchor(bottom);
+  }
+}
+
+/* fallback: JavaScript ou position manual */
+@supports not (anchor-name: --test) {
+  .tooltip {
+    position: fixed;
+    /* JS ainda cuida disso */
+  }
+}</code></pre>
+
+            <h2>Quando já faz sentido usar</h2>
+
+            <p>Para projetos que rodam exclusivamente em Chrome/Edge (intranets, dashboards internos, apps Electron): use agora sem ressalvas.</p>
+
+            <p>Para sites públicos: implemente como progressive enhancement. A experiência base com JavaScript ainda funciona, e os usuários com suporte ganham a versão CSS-only.</p>
+
+            <hr>
+
+            <p>CSS Anchor Positioning é uma das adições mais práticas ao CSS em anos. Quando o suporte Firefox/Safari chegar ao nível do Chrome, boa parte dos utilitários de posicionamento de tooltips vai se tornar obsoleta — e isso é ótimo.</p>
+
+        </div>
+
+        <footer class="post-footer">
+            <a href="/blog/" class="post-footer__back">← Todos os artigos</a>
+            <a href="/#contato" class="btn btn--primary">Iniciar um projeto →</a>
+        </footer>
+
+    </article>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="nav-logo">
+                        <img src="/assets/images/logo.webp" alt="Matrix Logo" class="logo-img" width="36" height="36" loading="lazy">
+                        <span class="logo-text">Matrix</span>
+                    </a>
+                    <p class="footer-tagline">Tecnologia e Inovação</p>
+                </div>
+                <div class="footer-links">
+                    <a href="/#servicos">Serviços</a>
+                    <a href="/#cases">Cases</a>
+                    <a href="/#processo">Processo</a>
+                    <a href="/blog/">Blog</a>
+                    <a href="/#contato">Contato</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>CNPJ 57.744.307/0001-14 — Matrix Tecnologia e Inovação LTDA</p>
+                <p>&copy; <span class="copyright-year">2026</span> Matrix Tecnologia e Inovação. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

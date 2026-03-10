@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Transitions API: animações de página sem JavaScript extra · Matrix Blog</title>
+    <meta name="description" content="A API nativa do browser que finalmente resolve transições entre páginas com CSS puro. Como funciona, onde está disponível e quando faz sentido usar.">
+    <link rel="canonical" href="https://matrix-wheat-xi.vercel.app/blog/view-transitions-api.html">
+
+    <meta property="og:title" content="View Transitions API: animações de página sem JavaScript extra">
+    <meta property="og:description" content="A API nativa do browser que finalmente resolve transições entre páginas com CSS puro.">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-03-10">
+    <meta property="article:tag" content="CSS">
+    <meta property="article:tag" content="JavaScript">
+    <meta property="article:tag" content="Web APIs">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/blog.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="/assets/images/logo.webp" alt="Matrix Logo" class="logo-img" width="36" height="36">
+                <span class="logo-text">Matrix</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/#servicos">Serviços</a></li>
+                <li><a href="/#cases">Cases</a></li>
+                <li><a href="/#processo">Processo</a></li>
+                <li><a href="/#contato">Contato</a></li>
+            </ul>
+            <a href="/#contato" class="nav-cta">Iniciar Projeto</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menu de navegação">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <article class="post-article">
+
+        <header class="post-header">
+            <div class="post-header__tags">
+                <span class="post-header__tag">CSS</span>
+                <span class="post-header__tag">JavaScript</span>
+                <span class="post-header__tag">Web APIs</span>
+            </div>
+            <h1>View Transitions API: animações de página sem uma linha de JavaScript extra</h1>
+            <p class="post-header__desc">A API nativa do browser que finalmente resolve transições entre páginas com CSS puro. Entenda como funciona, onde já está disponível e quando faz sentido usar.</p>
+            <div class="post-header__meta">
+                <time datetime="2026-03-10">10 mar 2026</time>
+                <span class="post-card__sep">·</span>
+                <span>6 min de leitura</span>
+            </div>
+        </header>
+
+        <div class="post-body">
+
+            <p>Durante anos, animações de transição entre páginas foram território exclusivo de frameworks como React com Framer Motion, ou bibliotecas pesadas de animação. O browser simplesmente não tinha primitivas para isso.</p>
+
+            <p>A <strong>View Transitions API</strong> muda isso.</p>
+
+            <p>Com ela, você consegue animar a troca de conteúdo na tela — seja numa SPA mudando de rota, seja num site tradicional navegando entre páginas — usando apenas CSS e uma única chamada nativa.</p>
+
+            <h2>O problema que ela resolve</h2>
+
+            <p>Imagine que o usuário clica em um card de produto e a imagem do card "voa" até ocupar toda a tela na página de detalhe. Isso parecia impossível sem JavaScript complexo que rastreasse posições DOM, clonasse elementos e sincronizasse animações.</p>
+
+            <p>A View Transitions API faz exatamente isso, mas deixa o browser cuidar da parte difícil.</p>
+
+            <h2>Como funciona</h2>
+
+            <p>O mecanismo é simples:</p>
+
+            <ol>
+                <li>Você chama <code>document.startViewTransition(callback)</code></li>
+                <li>O browser tira um <strong>snapshot</strong> do estado atual da tela</li>
+                <li>Executa o <code>callback</code> (que atualiza o DOM)</li>
+                <li>Tira um <strong>snapshot</strong> do novo estado</li>
+                <li>Anima entre os dois snapshots com uma cross-fade padrão — ou com o CSS que você definir</li>
+            </ol>
+
+<pre><code>document.startViewTransition(() => {
+  // qualquer mudança de DOM vai aqui
+  updateContent();
+});</code></pre>
+
+            <p>Só isso já dá uma animação suave de fade entre o estado antigo e o novo. Sem biblioteca, sem dependência.</p>
+
+            <h2>Transições de elementos específicos</h2>
+
+            <p>A parte mais poderosa é nomear elementos para que o browser os anime individualmente:</p>
+
+<pre><code>/* O card na lista */
+.product-card img {
+  view-transition-name: product-image;
+}
+
+/* A imagem na página de detalhe */
+.product-detail img {
+  view-transition-name: product-image;
+}</code></pre>
+
+            <p>Com o mesmo <code>view-transition-name</code> nos dois elementos, o browser entende que são "o mesmo objeto" e cria uma animação suave de posição e tamanho entre eles. É o chamado <strong>shared element transition</strong>.</p>
+
+            <h2>Customizando com CSS</h2>
+
+            <p>As pseudo-classes <code>::view-transition-old</code> e <code>::view-transition-new</code> expõem os snapshots para estilização:</p>
+
+<pre><code>@keyframes slide-in {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+@keyframes slide-out {
+  from { transform: translateX(0);    opacity: 1; }
+  to   { transform: translateX(-100%); opacity: 0; }
+}
+
+::view-transition-old(root) {
+  animation: slide-out 300ms ease-out;
+}
+
+::view-transition-new(root) {
+  animation: slide-in 300ms ease-out;
+}</code></pre>
+
+            <h2>Navegação entre páginas (MPA)</h2>
+
+            <p>A API também funciona em <strong>Multi-Page Apps</strong> (navegação tradicional com <code>&lt;a href&gt;</code>), com opt-in via meta tag:</p>
+
+<pre><code>&lt;meta name="view-transition" content="same-origin"&gt;</code></pre>
+
+            <p>Com isso, qualquer navegação entre páginas do mesmo domínio recebe a animação configurada. Sem JavaScript, sem roteador, sem framework.</p>
+
+            <blockquote>
+                <p><strong>Nota:</strong> para MPAs, o suporte exige Chrome 126+. Como progressive enhancement — o site funciona normalmente onde não há suporte — o risco é zero.</p>
+            </blockquote>
+
+            <h2><code>prefers-reduced-motion</code> é obrigatório</h2>
+
+            <p>Usuários com sensibilidade a movimento podem desativar animações no sistema operacional. Sempre respeite:</p>
+
+<pre><code>@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}</code></pre>
+
+            <h2>Quando faz sentido usar</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cenário</th>
+                        <th>Vale a pena?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SPA com rotas (Next.js, React Router)</td>
+                        <td>Sim — substitui Framer Motion em muitos casos</td>
+                    </tr>
+                    <tr>
+                        <td>Blog ou site de conteúdo</td>
+                        <td>Sim — MPA transition com um meta tag</td>
+                    </tr>
+                    <tr>
+                        <td>Dashboard com muito estado</td>
+                        <td>Com cuidado — teste com dados reais</td>
+                    </tr>
+                    <tr>
+                        <td>Animação complexa com física</td>
+                        <td>Não — use uma lib especializada</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Suporte atual</h2>
+
+            <ul>
+                <li><strong>Chrome/Edge 111+</strong>: suporte completo para SPAs</li>
+                <li><strong>Chrome 126+</strong>: suporte para MPAs</li>
+                <li><strong>Firefox / Safari</strong>: em desenvolvimento</li>
+            </ul>
+
+            <p>Para produção, use como <strong>progressive enhancement</strong>: a experiência base funciona sem animação, a API é um upgrade silencioso para quem tem suporte.</p>
+
+            <hr>
+
+            <p>A View Transitions API é um daqueles casos raros onde o browser entregou uma primitiva que resolve um problema real sem adicionar complexidade. Antes de instalar uma biblioteca de animação, verifique se ela já resolve o seu caso.</p>
+
+        </div>
+
+        <footer class="post-footer">
+            <a href="/blog/" class="post-footer__back">← Todos os artigos</a>
+            <a href="/#contato" class="btn btn--primary">Iniciar um projeto →</a>
+        </footer>
+
+    </article>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="nav-logo">
+                        <img src="/assets/images/logo.webp" alt="Matrix Logo" class="logo-img" width="36" height="36" loading="lazy">
+                        <span class="logo-text">Matrix</span>
+                    </a>
+                    <p class="footer-tagline">Tecnologia e Inovação</p>
+                </div>
+                <div class="footer-links">
+                    <a href="/#servicos">Serviços</a>
+                    <a href="/#cases">Cases</a>
+                    <a href="/#processo">Processo</a>
+                    <a href="/blog/">Blog</a>
+                    <a href="/#contato">Contato</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>CNPJ 57.744.307/0001-14 — Matrix Tecnologia e Inovação LTDA</p>
+                <p>&copy; <span class="copyright-year">2026</span> Matrix Tecnologia e Inovação. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

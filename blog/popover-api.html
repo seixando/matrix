@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popover API: modais e tooltips nativos sem JavaScript · Matrix Blog</title>
+    <meta name="description" content="O atributo HTML que substitui bibliotecas inteiras de modal e tooltip. Acessibilidade, foco e dismiss automáticos — sem escrever uma linha de JS.">
+    <link rel="canonical" href="https://matrix-wheat-xi.vercel.app/blog/popover-api.html">
+
+    <meta property="og:title" content="Popover API: modais e tooltips nativos sem JavaScript">
+    <meta property="og:description" content="O atributo HTML que substitui bibliotecas inteiras de modal e tooltip. Acessibilidade, foco e dismiss automáticos — sem escrever uma linha de JS.">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-03-24">
+    <meta property="article:tag" content="HTML">
+    <meta property="article:tag" content="JavaScript">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/blog.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="/assets/images/logo.webp" alt="Matrix Logo" class="logo-img" width="36" height="36">
+                <span class="logo-text">Matrix</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/#servicos">Serviços</a></li>
+                <li><a href="/#cases">Cases</a></li>
+                <li><a href="/#processo">Processo</a></li>
+                <li><a href="/#contato">Contato</a></li>
+                <li><a href="/blog/">Blog</a></li>
+            </ul>
+            <a href="/#contato" class="nav-cta">Iniciar Projeto</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menu de navegação">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <article class="post-article">
+
+        <header class="post-header">
+            <div class="post-header__tags">
+                <span class="post-header__tag">HTML</span>
+                <span class="post-header__tag">JavaScript</span>
+            </div>
+            <h1>Popover API: modais e tooltips nativos sem JavaScript</h1>
+            <p class="post-header__desc">O atributo HTML que substitui bibliotecas inteiras de modal e tooltip. Acessibilidade, foco e dismiss automáticos — sem escrever uma linha de JS.</p>
+            <div class="post-header__meta">
+                <time datetime="2026-03-24">24 mar 2026</time>
+                <span class="post-card__sep">·</span>
+                <span>6 min de leitura</span>
+            </div>
+        </header>
+
+        <div class="post-body">
+
+            <p>Quantas vezes você já instalou uma biblioteca só para ter um modal acessível? Headless UI, Radix, Floating UI — todas ótimas, mas todas resolvendo um problema que o browser agora resolve nativamente.</p>
+
+            <p>A <strong>Popover API</strong> entrou no baseline em 2024 e tem suporte em todos os browsers modernos. O resultado: um sistema completo de sobreposição de conteúdo com um único atributo HTML.</p>
+
+            <h2>O mínimo que funciona</h2>
+
+<pre><code>&lt;button popovertarget="meu-popover"&gt;Abrir&lt;/button&gt;
+
+&lt;div id="meu-popover" popover&gt;
+  Conteúdo do popover aqui.
+&lt;/div&gt;</code></pre>
+
+            <p>Só isso. Sem JavaScript, sem CSS extra. O browser já entrega:</p>
+
+            <ul>
+                <li>Abertura e fechamento ao clicar no botão</li>
+                <li><strong>Light dismiss</strong> — fecha ao clicar fora ou pressionar <kbd>Esc</kbd></li>
+                <li>Renderização no <strong>top layer</strong> — acima de qualquer <code>z-index</code> e <code>overflow: hidden</code></li>
+                <li>Gerenciamento de foco automático</li>
+                <li>Atributos ARIA inferidos pelo browser</li>
+            </ul>
+
+            <h2>Top layer: o fim dos problemas de z-index</h2>
+
+            <p>Este é o detalhe mais importante. Elementos com <code>popover</code> são renderizados no <strong>top layer</strong> — uma camada especial do browser que fica acima de todo o DOM normal, independente de <code>z-index</code>, <code>overflow</code> ou <code>transform</code> nos ancestrais.</p>
+
+            <p>Acabou o problema clássico de "meu modal some porque o container pai tem <code>overflow: hidden</code>". O popover escapa do stacking context.</p>
+
+            <h2>Tipos de popover</h2>
+
+            <p>O atributo <code>popover</code> aceita dois valores:</p>
+
+            <table>
+                <thead>
+                    <tr><th>Valor</th><th>Comportamento</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>popover="auto"</code> (padrão)</td>
+                        <td>Fecha ao clicar fora (light dismiss). Só um aberto por vez no mesmo grupo.</td>
+                    </tr>
+                    <tr>
+                        <td><code>popover="manual"</code></td>
+                        <td>Não fecha automaticamente. Controle total via JS ou botão dedicado.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Controle via JavaScript</h2>
+
+            <p>Quando precisar de controle programático, três métodos novos no elemento:</p>
+
+<pre><code>const pop = document.getElementById('meu-popover');
+
+pop.showPopover();   // abre
+pop.hidePopover();   // fecha
+pop.togglePopover(); // alterna</code></pre>
+
+            <p>E dois eventos para reagir às mudanças:</p>
+
+<pre><code>pop.addEventListener('beforetoggle', (e) => {
+  console.log(e.oldState); // "closed" ou "open"
+  console.log(e.newState); // "open" ou "closed"
+});
+
+pop.addEventListener('toggle', (e) => {
+  // popover já mudou de estado
+});</code></pre>
+
+            <h2>Estilizando com CSS</h2>
+
+            <p>O estado aberto/fechado é acessível via pseudo-classe:</p>
+
+<pre><code>[popover] {
+  /* estilo base — mesmo quando fechado */
+  background: #1a1a1a;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  color: white;
+
+  /* reset do estilo padrão do browser */
+  border: none;
+  margin: auto;
+}
+
+[popover]:popover-open {
+  /* aplicado apenas quando aberto */
+}
+
+/* Backdrop nativo */
+[popover]::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}</code></pre>
+
+            <h2>Animando a entrada e saída</h2>
+
+            <p>Por padrão, o popover aparece e desaparece sem animação. Para animar, combine com <code>@starting-style</code> (tema do próximo artigo) ou use transições simples:</p>
+
+<pre><code>[popover] {
+  opacity: 0;
+  transform: scale(.95);
+  transition: opacity .2s, transform .2s,
+              display .2s allow-discrete,
+              overlay .2s allow-discrete;
+}
+
+[popover]:popover-open {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@starting-style {
+  [popover]:popover-open {
+    opacity: 0;
+    transform: scale(.95);
+  }
+}</code></pre>
+
+            <p>A keyword <code>allow-discrete</code> é necessária porque <code>display</code> e <code>overlay</code> são propriedades discretas — não interpolam valores intermediários, então o browser precisa de permissão explícita para incluí-las na transição.</p>
+
+            <h2>Casos de uso ideais</h2>
+
+            <ul>
+                <li><strong>Tooltips e hints de formulário</strong> — o caso mais simples</li>
+                <li><strong>Menus de contexto e dropdowns</strong> — combinados com Anchor Positioning</li>
+                <li><strong>Painéis laterais (drawers)</strong> — com <code>popover="manual"</code></li>
+                <li><strong>Notificações e toasts</strong> — múltiplos popovers manuais empilhados</li>
+            </ul>
+
+            <blockquote>
+                <p><strong>Nota:</strong> para modais que bloqueiam o foco na página (<em>focus trap</em>), o elemento <code>&lt;dialog&gt;</code> ainda é a escolha certa. O <code>popover</code> é para conteúdo que coexiste com a página sem travar o fluxo do usuário.</p>
+            </blockquote>
+
+            <h2>Suporte</h2>
+
+            <p>Baseline amplamente disponível desde 2024. Chrome, Edge, Firefox e Safari com suporte completo. Sem necessidade de polyfill para projetos novos.</p>
+
+            <hr>
+
+            <p>A Popover API não substitui todos os casos de uso de bibliotecas de componentes, mas elimina o JavaScript boilerplate para o caso mais comum: mostrar e esconder um pedaço de conteúdo. Menos dependência, menos bundle, mesma experiência.</p>
+
+        </div>
+
+        <footer class="post-footer">
+            <a href="/blog/" class="post-footer__back">← Todos os artigos</a>
+            <a href="/#contato" class="btn btn--primary">Iniciar um projeto →</a>
+        </footer>
+
+    </article>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="nav-logo">
+                        <img src="/assets/images/logo.webp" alt="Matrix Logo" class="logo-img" width="36" height="36" loading="lazy">
+                        <span class="logo-text">Matrix</span>
+                    </a>
+                    <p class="footer-tagline">Tecnologia e Inovação</p>
+                </div>
+                <div class="footer-links">
+                    <a href="/#servicos">Serviços</a>
+                    <a href="/#cases">Cases</a>
+                    <a href="/#processo">Processo</a>
+                    <a href="/blog/">Blog</a>
+                    <a href="/#contato">Contato</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>CNPJ 57.744.307/0001-14 — Matrix Tecnologia e Inovação LTDA</p>
+                <p>&copy; <span class="copyright-year">2026</span> Matrix Tecnologia e Inovação. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

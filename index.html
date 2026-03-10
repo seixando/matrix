@@ -100,6 +100,7 @@
                 <li><a href="#cases">Cases</a></li>
                 <li><a href="#processo">Processo</a></li>
                 <li><a href="#contato">Contato</a></li>
+                <li><a href="/blog/">Blog</a></li>
             </ul>
             <a href="#contato" class="nav-cta">Iniciar Projeto</a>
             <button class="nav-toggle" id="navToggle" aria-label="Abrir menu de navegação">
@@ -534,51 +535,54 @@
         </div>
     </section>
 
+    <!-- DEPOIMENTOS: oculto até ter depoimentos reais -->
+
     <!-- ═══════════════════════════════════════════════
-         DEPOIMENTOS
+         BLOG
          ═══════════════════════════════════════════════ -->
-    <section id="depoimentos" class="section" style="display:none">
+    <section id="blog" class="section">
         <div class="grain-overlay"></div>
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Quem <span class="accent-text">confia</span> na gente</h2>
+                <span class="section-tag">// blog</span>
+                <h2 class="section-title">Direto do <span class="accent-text">lab</span></h2>
                 <p class="section-desc">
-                    Não precisa acreditar em nós. Acredite em quem já passou por aqui.
+                    Artigos técnicos sobre web, arquitetura e software que dura.
                 </p>
             </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card reveal">
-                    <p class="testimonial-quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar" aria-hidden="true">XX</div>
-                        <div class="author-info">
-                            <p class="author-name">Lorem Ipsum</p>
-                            <p class="author-role">Cargo — Empresa</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="blog-preview-grid">
 
-                <div class="testimonial-card reveal">
-                    <p class="testimonial-quote">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar" aria-hidden="true">XX</div>
-                        <div class="author-info">
-                            <p class="author-name">Lorem Ipsum</p>
-                            <p class="author-role">Cargo — Empresa</p>
-                        </div>
+                <a href="/blog/starting-style.html" class="blog-preview-card reveal">
+                    <div class="blog-preview-card__tags">
+                        <span class="blog-tag">CSS</span>
                     </div>
-                </div>
+                    <h3>@starting-style: animando elementos que entram no DOM com CSS puro</h3>
+                    <p>Chega de setTimeout para fingir uma transição de entrada. A regra CSS que define o estado inicial de um elemento antes da primeira renderização.</p>
+                    <span class="blog-preview-card__meta">31 mar 2026 · 6 min</span>
+                </a>
 
-                <div class="testimonial-card reveal">
-                    <p class="testimonial-quote">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt et molestiae non recusandae.</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar" aria-hidden="true">XX</div>
-                        <div class="author-info">
-                            <p class="author-name">Lorem Ipsum</p>
-                            <p class="author-role">Cargo — Empresa</p>
-                        </div>
+                <a href="/blog/popover-api.html" class="blog-preview-card reveal">
+                    <div class="blog-preview-card__tags">
+                        <span class="blog-tag">HTML</span>
+                        <span class="blog-tag">JavaScript</span>
                     </div>
-                </div>
+                    <h3>Popover API: modais e tooltips nativos sem JavaScript</h3>
+                    <p>Um atributo HTML. Sem biblioteca. Com acessibilidade, light dismiss e top layer nativos do browser.</p>
+                    <span class="blog-preview-card__meta">24 mar 2026 · 6 min</span>
+                </a>
+
+                <a href="/blog/css-anchor-positioning.html" class="blog-preview-card reveal">
+                    <div class="blog-preview-card__tags">
+                        <span class="blog-tag">CSS</span>
+                    </div>
+                    <h3>CSS Anchor Positioning: tooltips e dropdowns sem JavaScript</h3>
+                    <p>Fim dos cálculos de getBoundingClientRect. Posicione qualquer elemento relativo a outro com CSS puro.</p>
+                    <span class="blog-preview-card__meta">17 mar 2026 · 7 min</span>
+                </a>
+
+            </div>
+            <div class="blog-preview-cta">
+                <a href="/blog/" class="btn btn--ghost">Ver todos os artigos →</a>
             </div>
         </div>
     </section>
@@ -789,6 +793,7 @@
                     <a href="#sobre">Sobre</a>
                     <a href="#tecnologias">Stack</a>
                     <a href="#contato">Contato</a>
+                    <a href="/blog/">Blog</a>
                 </div>
                 <div class="footer-social">
                     <a href="https://www.instagram.com/matrixtecnologia.dev/" target="_blank" rel="noopener" aria-label="Instagram">

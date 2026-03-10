@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — Matrix Tecnologia e Inovação</title>
+    <meta name="description" content="Artigos técnicos sobre web, arquitetura de software e engenharia aplicada. Sem hype, com propósito.">
+    <link rel="canonical" href="https://matrix-wheat-xi.vercel.app/blog/">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/blog.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="/assets/images/logo.webp" alt="Matrix Logo" class="logo-img" width="36" height="36">
+                <span class="logo-text">Matrix</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/#servicos">Serviços</a></li>
+                <li><a href="/#cases">Cases</a></li>
+                <li><a href="/#processo">Processo</a></li>
+                <li><a href="/#contato">Contato</a></li>
+            </ul>
+            <a href="/#contato" class="nav-cta">Iniciar Projeto</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menu de navegação">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container">
+            <div class="blog-hero">
+                <span class="section-tag">// blog</span>
+                <h1>Engenharia <span class="accent-text">aplicada</span></h1>
+                <p class="lead">Artigos sobre web, arquitetura e software que dura. Sem hype, com propósito.</p>
+            </div>
+
+            <div class="posts-grid">
+
+                <a href="/blog/starting-style.html" class="post-card">
+                    <div class="post-card__tags">
+                        <span class="post-card__tag">CSS</span>
+                    </div>
+                    <h2 class="post-card__title">@starting-style: animando elementos que entram no DOM com CSS puro</h2>
+                    <p class="post-card__desc">A regra CSS que resolve o problema mais chato de animação: elementos que aparecem do nada. Chega de setTimeout para fingir uma transição de entrada.</p>
+                    <div class="post-card__meta">
+                        <time datetime="2026-03-31">31 mar 2026</time>
+                        <span class="post-card__sep">·</span>
+                        <span>6 min de leitura</span>
+                    </div>
+                </a>
+
+                <a href="/blog/popover-api.html" class="post-card">
+                    <div class="post-card__tags">
+                        <span class="post-card__tag">HTML</span>
+                        <span class="post-card__tag">JavaScript</span>
+                    </div>
+                    <h2 class="post-card__title">Popover API: modais e tooltips nativos sem JavaScript</h2>
+                    <p class="post-card__desc">O atributo HTML que substitui bibliotecas inteiras de modal e tooltip. Acessibilidade, foco e dismiss automáticos — sem escrever uma linha de JS.</p>
+                    <div class="post-card__meta">
+                        <time datetime="2026-03-24">24 mar 2026</time>
+                        <span class="post-card__sep">·</span>
+                        <span>6 min de leitura</span>
+                    </div>
+                </a>
+
+                <a href="/blog/css-anchor-positioning.html" class="post-card">
+                    <div class="post-card__tags">
+                        <span class="post-card__tag">CSS</span>
+                    </div>
+                    <h2 class="post-card__title">CSS Anchor Positioning: tooltips e dropdowns sem JavaScript</h2>
+                    <p class="post-card__desc">A propriedade CSS que finalmente permite posicionar qualquer elemento em relação a outro sem uma linha de JavaScript. Fim dos cálculos de getBoundingClientRect.</p>
+                    <div class="post-card__meta">
+                        <time datetime="2026-03-17">17 mar 2026</time>
+                        <span class="post-card__sep">·</span>
+                        <span>7 min de leitura</span>
+                    </div>
+                </a>
+
+                <a href="/blog/view-transitions-api.html" class="post-card">
+                    <div class="post-card__tags">
+                        <span class="post-card__tag">CSS</span>
+                        <span class="post-card__tag">Web APIs</span>
+                    </div>
+                    <h2 class="post-card__title">View Transitions API: animações de página sem uma linha de JavaScript extra</h2>
+                    <p class="post-card__desc">A API nativa do browser que finalmente resolve transições entre páginas com CSS puro. Como funciona, onde está disponível e quando faz sentido usar.</p>
+                    <div class="post-card__meta">
+                        <time datetime="2026-03-10">10 mar 2026</time>
+                        <span class="post-card__sep">·</span>
+                        <span>6 min de leitura</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="nav-logo">
+                        <img src="/assets/images/logo.webp" alt="Matrix Logo" class="logo-img" width="36" height="36" loading="lazy">
+                        <span class="logo-text">Matrix</span>
+                    </a>
+                    <p class="footer-tagline">Tecnologia e Inovação</p>
+                </div>
+                <div class="footer-links">
+                    <a href="/#servicos">Serviços</a>
+                    <a href="/#cases">Cases</a>
+                    <a href="/#processo">Processo</a>
+                    <a href="/blog/">Blog</a>
+                    <a href="/#contato">Contato</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>CNPJ 57.744.307/0001-14 — Matrix Tecnologia e Inovação LTDA</p>
+                <p>&copy; <span class="copyright-year">2026</span> Matrix Tecnologia e Inovação. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
