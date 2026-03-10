@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Background -->
+  <rect width="64" height="64" rx="11" fill="#080808"/>
+
+  <!-- Outer ring (the sphere circle from the logo) -->
+  <circle cx="32" cy="32" r="26" fill="none" stroke="#00b450" stroke-width="1.2" opacity="0.7"/>
+  <!-- Inner ring -->
+  <circle cx="32" cy="32" r="19" fill="none" stroke="#00ff88" stroke-width="0.8" opacity="0.35"/>
+
+  <!-- Sphere fill (soft glow) -->
+  <circle cx="32" cy="32" r="16" fill="#00ff88" opacity="0.07"/>
+  <circle cx="32" cy="32" r="10" fill="#00ff88" opacity="0.08"/>
+
+  <!-- X glow -->
+  <line x1="15" y1="15" x2="49" y2="49" stroke="#00ff88" stroke-width="9" stroke-linecap="round" opacity="0.15"/>
+  <line x1="49" y1="15" x2="15" y2="49" stroke="#00ff88" stroke-width="9" stroke-linecap="round" opacity="0.15"/>
+
+  <!-- X principal -->
+  <line x1="15" y1="15" x2="49" y2="49" stroke="#00ff88" stroke-width="5" stroke-linecap="round"/>
+  <line x1="49" y1="15" x2="15" y2="49" stroke="#00ff88" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Center dot -->
+  <circle cx="32" cy="32" r="4" fill="#00ff88"/>
+
+  <!-- Corner circuit nodes -->
+  <circle cx="9"  cy="9"  r="2.2" fill="#00ff88" opacity="0.55"/>
+  <circle cx="55" cy="9"  r="2.2" fill="#00ff88" opacity="0.55"/>
+  <circle cx="9"  cy="55" r="2.2" fill="#00ff88" opacity="0.55"/>
+  <circle cx="55" cy="55" r="2.2" fill="#00ff88" opacity="0.55"/>
+</svg>

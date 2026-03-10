@@ -1,0 +1,26 @@
+{
+  "name": "Matrix Tecnologia e Inovação",
+  "short_name": "Matrix",
+  "description": "Software sob medida com arquitetura limpa, performance brutal e entrega dentro do prazo.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#080808",
+  "theme_color": "#00ff88",
+  "icons": [
+    {
+      "src": "/assets/images/favicon-16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

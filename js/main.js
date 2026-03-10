@@ -469,17 +469,31 @@
         var notice = document.getElementById('cookieNotice');
         var btnAccept = document.getElementById('cookieAccept');
         var btnDecline = document.getElementById('cookieDecline');
+        var fab = document.querySelector('.whatsapp-fab');
 
         if (!notice) return;
 
-        if (!localStorage.getItem(STORAGE_KEY)) {
-            // Show after a small delay so page loads first
-            setTimeout(function () { notice.hidden = false; }, 1200);
+        function raiseFab() {
+            if (!fab) return;
+            fab.style.bottom = (notice.offsetHeight + 20) + 'px';
+        }
+
+        function resetFab() {
+            if (!fab) return;
+            fab.style.bottom = '';
         }
 
         function dismiss(value) {
             notice.hidden = true;
+            resetFab();
             localStorage.setItem(STORAGE_KEY, value);
+        }
+
+        if (!localStorage.getItem(STORAGE_KEY)) {
+            setTimeout(function () {
+                notice.hidden = false;
+                raiseFab();
+            }, 1200);
         }
 
         if (btnAccept) btnAccept.addEventListener('click', function () { dismiss('accepted'); });
