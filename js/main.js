@@ -463,6 +463,29 @@
         setTimeout(typeNext, 600);
     }());
 
+    /* ─── Cookie notice (LGPD) ──────────────── */
+    (function () {
+        var STORAGE_KEY = 'matrix_cookie_consent';
+        var notice = document.getElementById('cookieNotice');
+        var btnAccept = document.getElementById('cookieAccept');
+        var btnDecline = document.getElementById('cookieDecline');
+
+        if (!notice) return;
+
+        if (!localStorage.getItem(STORAGE_KEY)) {
+            // Show after a small delay so page loads first
+            setTimeout(function () { notice.hidden = false; }, 1200);
+        }
+
+        function dismiss(value) {
+            notice.hidden = true;
+            localStorage.setItem(STORAGE_KEY, value);
+        }
+
+        if (btnAccept) btnAccept.addEventListener('click', function () { dismiss('accepted'); });
+        if (btnDecline) btnDecline.addEventListener('click', function () { dismiss('declined'); });
+    }());
+
     /* ─── Copyright year (dynamic) ─────────── */
     var yearEl = document.getElementById('copyright-year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
