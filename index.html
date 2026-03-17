@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO -->
-    <meta name="description" content="Matrix Tecnologia e Inovação — Desenvolvimento de software sob medida. Web, mobile, cloud e IA com arquitetura limpa e entrega dentro do prazo.">
+    <meta name="description"
+        content="Matrix Tecnologia e Inovação — Desenvolvimento de software sob medida. Web, mobile, cloud e IA com arquitetura limpa e entrega dentro do prazo.">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Matrix Tecnologia e Inovação">
     <link rel="canonical" href="https://matrix-wheat-xi.vercel.app/">
@@ -13,7 +15,8 @@
 
     <!-- Open Graph -->
     <meta property="og:title" content="Matrix — Tecnologia e Inovação">
-    <meta property="og:description" content="Software sob medida com arquitetura limpa, performance brutal e entrega dentro do prazo.">
+    <meta property="og:description"
+        content="Software sob medida com arquitetura limpa, performance brutal e entrega dentro do prazo.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://matrix-wheat-xi.vercel.app/">
     <meta property="og:image" content="https://matrix-wheat-xi.vercel.app/assets/images/og-image.png">
@@ -26,7 +29,8 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Matrix — Tecnologia e Inovação">
-    <meta name="twitter:description" content="Software sob medida com arquitetura limpa, performance brutal e entrega dentro do prazo.">
+    <meta name="twitter:description"
+        content="Software sob medida com arquitetura limpa, performance brutal e entrega dentro do prazo.">
     <meta name="twitter:image" content="https://matrix-wheat-xi.vercel.app/assets/images/og-image.png">
     <meta name="twitter:image:alt" content="Matrix Tecnologia e Inovação">
 
@@ -59,27 +63,31 @@
     <title>Matrix — Tecnologia e Inovação</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css?v=3">
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4G82698109"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-4G82698109');
     </script>
 
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
         })(window, document, "clarity", "script", "vtnr4tjdec");
     </script>
 </head>
+
 <body>
 
     <canvas id="matrix-rain" aria-hidden="true"></canvas>
@@ -118,17 +126,19 @@
         <div class="hero-orb hero-orb--2"></div>
         <div class="hero-orb hero-orb--3"></div>
         <div class="hero-grid"></div>
-        <svg class="hero-shape hero-shape--1" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M100 0L200 100L100 200L0 100Z" stroke="currentColor" stroke-width="1" opacity="0.15"/>
-            <path d="M100 30L170 100L100 170L30 100Z" stroke="currentColor" stroke-width="1" opacity="0.1"/>
-            <path d="M100 60L140 100L100 140L60 100Z" stroke="currentColor" stroke-width="1" opacity="0.08"/>
+        <svg class="hero-shape hero-shape--1" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <path d="M100 0L200 100L100 200L0 100Z" stroke="currentColor" stroke-width="1" opacity="0.15" />
+            <path d="M100 30L170 100L100 170L30 100Z" stroke="currentColor" stroke-width="1" opacity="0.1" />
+            <path d="M100 60L140 100L100 140L60 100Z" stroke="currentColor" stroke-width="1" opacity="0.08" />
         </svg>
-        <svg class="hero-shape hero-shape--2" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="60" cy="60" r="58" stroke="currentColor" stroke-width="0.5" opacity="0.12"/>
-            <circle cx="60" cy="60" r="40" stroke="currentColor" stroke-width="0.5" opacity="0.08"/>
-            <circle cx="60" cy="60" r="22" stroke="currentColor" stroke-width="0.5" opacity="0.06"/>
-            <line x1="60" y1="0" x2="60" y2="120" stroke="currentColor" stroke-width="0.3" opacity="0.06"/>
-            <line x1="0" y1="60" x2="120" y2="60" stroke="currentColor" stroke-width="0.3" opacity="0.06"/>
+        <svg class="hero-shape hero-shape--2" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <circle cx="60" cy="60" r="58" stroke="currentColor" stroke-width="0.5" opacity="0.12" />
+            <circle cx="60" cy="60" r="40" stroke="currentColor" stroke-width="0.5" opacity="0.08" />
+            <circle cx="60" cy="60" r="22" stroke="currentColor" stroke-width="0.5" opacity="0.06" />
+            <line x1="60" y1="0" x2="60" y2="120" stroke="currentColor" stroke-width="0.3" opacity="0.06" />
+            <line x1="0" y1="60" x2="120" y2="60" stroke="currentColor" stroke-width="0.3" opacity="0.06" />
         </svg>
 
         <div class="hero-content" id="main-content">
@@ -148,14 +158,16 @@
                 <a href="#contato" class="btn btn--primary">
                     <span>Iniciar Projeto</span>
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                        <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </a>
                 <a href="#cases" class="btn btn--ghost">Ver nosso trabalho</a>
             </div>
             <div class="hero-availability">
                 <span class="availability-dot" aria-hidden="true"></span>
-                <span><strong class="availability-count">1</strong> vaga aberta para projetos em <strong>abril</strong></span>
+                <span><strong class="availability-count">1</strong> vaga aberta para projetos em
+                    <strong>abril</strong></span>
             </div>
         </div>
     </section>
@@ -176,11 +188,12 @@
             <div class="services-grid">
                 <div class="service-card reveal">
                     <div class="service-icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"
+                            aria-hidden="true">
                             <rect x="4" y="4" width="40" height="32" rx="4" />
-                            <path d="M14 20L20 26L14 32" stroke-linecap="round" stroke-linejoin="round"/>
-                            <line x1="24" y1="32" x2="34" y2="32" stroke-linecap="round"/>
-                            <line x1="4" y1="40" x2="44" y2="40"/>
+                            <path d="M14 20L20 26L14 32" stroke-linecap="round" stroke-linejoin="round" />
+                            <line x1="24" y1="32" x2="34" y2="32" stroke-linecap="round" />
+                            <line x1="4" y1="40" x2="44" y2="40" />
                         </svg>
                     </div>
                     <h3>Desenvolvimento Web</h3>
@@ -192,11 +205,12 @@
 
                 <div class="service-card reveal">
                     <div class="service-icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                            <rect x="12" y="2" width="24" height="44" rx="4"/>
-                            <line x1="20" y1="42" x2="28" y2="42" stroke-linecap="round"/>
-                            <circle cx="24" cy="24" r="8"/>
-                            <path d="M24 16V24L28 28" stroke-linecap="round" stroke-linejoin="round"/>
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"
+                            aria-hidden="true">
+                            <rect x="12" y="2" width="24" height="44" rx="4" />
+                            <line x1="20" y1="42" x2="28" y2="42" stroke-linecap="round" />
+                            <circle cx="24" cy="24" r="8" />
+                            <path d="M24 16V24L28 28" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </div>
                     <h3>Apps Mobile</h3>
@@ -208,12 +222,13 @@
 
                 <div class="service-card reveal">
                     <div class="service-icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                            <path d="M24 4L4 14V34L24 44L44 34V14L24 4Z"/>
-                            <path d="M24 4V24"/>
-                            <path d="M4 14L24 24"/>
-                            <path d="M44 14L24 24"/>
-                            <circle cx="24" cy="24" r="4" fill="currentColor" opacity="0.3"/>
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"
+                            aria-hidden="true">
+                            <path d="M24 4L4 14V34L24 44L44 34V14L24 4Z" />
+                            <path d="M24 4V24" />
+                            <path d="M4 14L24 24" />
+                            <path d="M44 14L24 24" />
+                            <circle cx="24" cy="24" r="4" fill="currentColor" opacity="0.3" />
                         </svg>
                     </div>
                     <h3>Arquitetura Cloud</h3>
@@ -225,17 +240,19 @@
 
                 <div class="service-card reveal">
                     <div class="service-icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                            <circle cx="24" cy="24" r="20"/>
-                            <path d="M16 24C16 18 20 14 24 14"/>
-                            <path d="M32 24C32 30 28 34 24 34"/>
-                            <circle cx="24" cy="24" r="4"/>
-                            <circle cx="24" cy="14" r="2" fill="currentColor"/>
-                            <circle cx="24" cy="34" r="2" fill="currentColor"/>
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"
+                            aria-hidden="true">
+                            <circle cx="24" cy="24" r="20" />
+                            <path d="M16 24C16 18 20 14 24 14" />
+                            <path d="M32 24C32 30 28 34 24 34" />
+                            <circle cx="24" cy="24" r="4" />
+                            <circle cx="24" cy="14" r="2" fill="currentColor" />
+                            <circle cx="24" cy="34" r="2" fill="currentColor" />
                         </svg>
                     </div>
                     <h3>IA & Automação</h3>
-                    <p>Modelos de machine learning, chatbots inteligentes e automação de processos que economizam horas.</p>
+                    <p>Modelos de machine learning, chatbots inteligentes e automação de processos que economizam horas.
+                    </p>
                     <div class="service-tags">
                         <span>Python</span><span>TensorFlow</span><span>LLMs</span>
                     </div>
@@ -243,15 +260,17 @@
 
                 <div class="service-card reveal">
                     <div class="service-icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                            <path d="M24 4L44 14V34L24 44L4 34V14L24 4Z"/>
-                            <path d="M12 10L24 16L36 10"/>
-                            <path d="M12 22L24 28L36 22"/>
-                            <path d="M24 16V28"/>
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"
+                            aria-hidden="true">
+                            <path d="M24 4L44 14V34L24 44L4 34V14L24 4Z" />
+                            <path d="M12 10L24 16L36 10" />
+                            <path d="M12 22L24 28L36 22" />
+                            <path d="M24 16V28" />
                         </svg>
                     </div>
                     <h3>APIs & Integrações</h3>
-                    <p>APIs REST e GraphQL robustas. Integrações com ERPs, gateways de pagamento e serviços de terceiros.</p>
+                    <p>APIs REST e GraphQL robustas. Integrações com ERPs, gateways de pagamento e serviços de
+                        terceiros.</p>
                     <div class="service-tags">
                         <span>Node.js</span><span>GraphQL</span><span>REST</span>
                     </div>
@@ -259,15 +278,16 @@
 
                 <div class="service-card reveal">
                     <div class="service-icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                            <rect x="6" y="8" width="36" height="32" rx="3"/>
-                            <path d="M6 16H42"/>
-                            <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
-                            <circle cx="17" cy="12" r="1.5" fill="currentColor"/>
-                            <circle cx="22" cy="12" r="1.5" fill="currentColor"/>
-                            <rect x="12" y="22" width="10" height="6" rx="1" opacity="0.5"/>
-                            <rect x="26" y="22" width="10" height="6" rx="1" opacity="0.5"/>
-                            <rect x="12" y="32" width="24" height="3" rx="1" opacity="0.3"/>
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"
+                            aria-hidden="true">
+                            <rect x="6" y="8" width="36" height="32" rx="3" />
+                            <path d="M6 16H42" />
+                            <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+                            <circle cx="17" cy="12" r="1.5" fill="currentColor" />
+                            <circle cx="22" cy="12" r="1.5" fill="currentColor" />
+                            <rect x="12" y="22" width="10" height="6" rx="1" opacity="0.5" />
+                            <rect x="26" y="22" width="10" height="6" rx="1" opacity="0.5" />
+                            <rect x="12" y="32" width="24" height="3" rx="1" opacity="0.3" />
                         </svg>
                     </div>
                     <h3>UI/UX Design</h3>
@@ -295,35 +315,55 @@
             </div>
             <div class="cases-grid">
                 <div class="case-card reveal">
-                    <div class="case-tags">
-                        <span class="case-tag">Web</span>
-                        <span class="case-tag">Open Source</span>
-                        <span class="case-tag case-tag--date">2024</span>
+                    <div class="case-card__cover">
+                        <img src="assets/icanhelpyou_home.png" alt="iCanHelpYou Homepage" loading="lazy">
                     </div>
-                    <h3 class="case-title">iCanHelpYou</h3>
-                    <p class="case-stack">Next.js · React · TypeScript · OAuth APIs</p>
-                    <p class="case-desc">Plataforma para migrar playlists, músicas curtidas e álbuns entre Spotify, YouTube Music e Deezer. Autenticação OAuth segura, matching inteligente de faixas e processamento em background para grandes bibliotecas.</p>
-                    <div class="case-result">
-                        <span class="case-metric">3 plataformas</span> integradas via OAuth oficial. 100% gratuito e open source — sem limites artificiais.
-                    </div>
-                    <div class="case-links">
-                        <a href="https://icanhelpyou-delta.vercel.app/login" class="case-link" target="_blank" rel="noopener">Ver projeto →</a>
+                    <div class="case-card__body">
+                        <div class="case-tags">
+                            <span class="case-tag">Web</span>
+                            <span class="case-tag">Open Source</span>
+                            <span class="case-tag case-tag--date">2024</span>
+                        </div>
+                        <h3 class="case-title">iCanHelpYou</h3>
+                        <p class="case-stack">Next.js · React · TypeScript · OAuth APIs</p>
+                        <p class="case-desc">Plataforma para migrar playlists, músicas curtidas e álbuns entre Spotify,
+                            YouTube Music e Deezer. Autenticação OAuth segura, matching inteligente de faixas e
+                            processamento em background para grandes bibliotecas.</p>
+                        <div class="case-result">
+                            <span class="case-metric">3 plataformas</span> integradas via OAuth oficial. 100% gratuito e
+                            open source — sem limites artificiais.
+                        </div>
+                        <div class="case-links">
+                            <a href="https://icanhelpyou-delta.vercel.app/login" class="case-link" target="_blank"
+                                rel="noopener">Ver projeto →</a>
+                        </div>
                     </div>
                 </div>
 
                 <div class="case-card reveal">
-                    <div class="case-tags">
-                        <span class="case-tag">Web</span>
-                        <span class="case-tag">Landing Page</span>
-                        <span class="case-tag case-tag--date">2024</span>
+                    <div class="case-card__cover">
+                        <img src="assets/pedromartins_home.png" alt="Pedro Martins Numerólogo Homepage" loading="lazy">
                     </div>
-                    <h3 class="case-title">Pedro Numerologia</h3>
-                    <p class="case-stack">Next.js · React · Vercel · Schema.org</p>
-                    <p class="case-desc">Landing page de alta conversão para produto digital. SEO estruturado com Schema.org, integração com pagamentos via PIX e cartão, WhatsApp e redes sociais.</p>
-                    <div class="case-result">
-                        <span class="case-metric">Em produção</span> na Vercel com CI/CD. SEO otimizado com dados estruturados e pagamentos digitais integrados.
+                    <div class="case-card__body">
+                        <div class="case-tags">
+                            <span class="case-tag">Web</span>
+                            <span class="case-tag">Landing Page</span>
+                            <span class="case-tag case-tag--date">2024</span>
+                        </div>
+                        <h3 class="case-title">Pedro M'artins - Numerólogo</h3>
+                        <p class="case-stack">Next.js · React · Vercel · Schema.org</p>
+                        <p class="case-desc">Landing page de alta conversão para produto digital. SEO estruturado com
+                            Schema.org, integração com pagamentos via PIX e cartão, WhatsApp e redes sociais.</p>
+                        <div class="case-result">
+                            <span class="case-metric">Em produção</span> na Vercel com CI/CD. SEO otimizado com dados
+                            estruturados e pagamentos digitais integrados.
+                        </div>
+                        <div class="case-links">
+                            <a href="https://pedro-numerologia.vercel.app/" class="case-link" target="_blank"
+                                rel="noopener">Ver
+                                projeto →</a>
+                        </div>
                     </div>
-                    <a href="https://pedro-numerologia.vercel.app/" class="case-link" target="_blank" rel="noopener">Ver projeto →</a>
                 </div>
             </div>
         </div>
@@ -346,37 +386,45 @@
                 <div class="problem-card reveal">
                     <div class="problem-when">No dia do lançamento</div>
                     <h3>Seu servidor vai travar.</h3>
-                    <p>Tráfego real nunca é linear. Picos de 10× na hora errada derrubam sistemas que não foram pensados para isso.</p>
+                    <p>Tráfego real nunca é linear. Picos de 10× na hora errada derrubam sistemas que não foram pensados
+                        para isso.</p>
                     <div class="problem-how">
                         <span class="problem-how-label">Como prevenimos</span>
-                        Load testing antes do go-live, pool de conexões ajustado e queries indexadas desde o primeiro sprint.
+                        Load testing antes do go-live, pool de conexões ajustado e queries indexadas desde o primeiro
+                        sprint.
                     </div>
                 </div>
                 <div class="problem-card reveal">
                     <div class="problem-when">No mês 3 em produção</div>
                     <h3>Alguém pode tentar acessar sua API.</h3>
-                    <p>Bots, scrapers e usuários mal-intencionados aparecem quando o produto ganha visibilidade. Rate limiting depois é tarde.</p>
+                    <p>Bots, scrapers e usuários mal-intencionados aparecem quando o produto ganha visibilidade. Rate
+                        limiting depois é tarde.</p>
                     <div class="problem-how">
                         <span class="problem-how-label">Como prevenimos</span>
-                        Rate limiting, validação de schema e logs de auditoria implementados do dia zero. Segurança não é feature — é requisito.
+                        Rate limiting, validação de schema e logs de auditoria implementados do dia zero. Segurança não
+                        é feature — é requisito.
                     </div>
                 </div>
                 <div class="problem-card reveal">
                     <div class="problem-when">No ano 1</div>
                     <h3>O dev que construiu vai sair.</h3>
-                    <p>Código sem documentação é código morto para a próxima equipe. Onboarding de meses significa dinheiro jogado fora.</p>
+                    <p>Código sem documentação é código morto para a próxima equipe. Onboarding de meses significa
+                        dinheiro jogado fora.</p>
                     <div class="problem-how">
                         <span class="problem-how-label">Como prevenimos</span>
-                        Arquitetura documentada, código auto-explicativo e ADRs (Architecture Decision Records) em cada entrega.
+                        Arquitetura documentada, código auto-explicativo e ADRs (Architecture Decision Records) em cada
+                        entrega.
                     </div>
                 </div>
                 <div class="problem-card reveal">
                     <div class="problem-when">Na primeira auditoria</div>
                     <h3>Sua acessibilidade vai reprovar.</h3>
-                    <p>LGPD, WCAG e requisitos de acessibilidade não são opcionais. Corrigir tudo depois custa entre 5× e 10× mais.</p>
+                    <p>LGPD, WCAG e requisitos de acessibilidade não são opcionais. Corrigir tudo depois custa entre 5×
+                        e 10× mais.</p>
                     <div class="problem-how">
                         <span class="problem-how-label">Como prevenimos</span>
-                        WCAG 2.1 AA desde o primeiro componente. Testes automatizados de acessibilidade no pipeline CI/CD.
+                        WCAG 2.1 AA desde o primeiro componente. Testes automatizados de acessibilidade no pipeline
+                        CI/CD.
                     </div>
                 </div>
             </div>
@@ -402,7 +450,8 @@
                             <span class="value-marker">01</span>
                             <div>
                                 <h4>Arquitetura Primeiro</h4>
-                                <p>Pensamos na estrutura antes de escrever a primeira linha. Software mal arquitetado custa caro.</p>
+                                <p>Pensamos na estrutura antes de escrever a primeira linha. Software mal arquitetado
+                                    custa caro.</p>
                             </div>
                         </div>
                         <div class="value-item reveal">
@@ -429,21 +478,26 @@
                             </div>
                             <span class="terminal-title">matrix@dev ~ </span>
                         </div>
-                        <div class="terminal-body" id="terminalLive" aria-live="polite" aria-label="Terminal animado"></div>
+                        <div class="terminal-body" id="terminalLive" aria-live="polite" aria-label="Terminal animado">
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Founder card -->
             <div class="about-founder reveal">
-                <img src="assets/images/photo_profile.png" alt="Pedro Seixas — Fundador da Matrix" class="founder-photo" width="220" height="147" loading="lazy">
+                <img src="assets/images/photo_profile.png" alt="Pedro Seixas — Fundador da Matrix" class="founder-photo"
+                    width="220" height="147" loading="lazy">
                 <div class="founder-info">
                     <p class="founder-name">Pedro Seixas</p>
                     <p class="founder-role">Founder & Lead Engineer</p>
-                    <p class="founder-bio">10+ anos desenvolvendo software. Obcecado com arquitetura limpa, performance e código que dura.</p>
-                    <a href="https://www.linkedin.com/in/pedroseixas27/" target="_blank" rel="noopener" class="founder-linkedin" aria-label="LinkedIn de Pedro Seixas">
+                    <p class="founder-bio">10+ anos desenvolvendo software. Obcecado com arquitetura limpa, performance
+                        e código que dura.</p>
+                    <a href="https://www.linkedin.com/in/pedroseixas27/" target="_blank" rel="noopener"
+                        class="founder-linkedin" aria-label="LinkedIn de Pedro Seixas">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                         </svg>
                         <span>LinkedIn</span>
                     </a>
@@ -470,13 +524,15 @@
                 <div class="process-step reveal">
                     <div class="process-number">01</div>
                     <div class="process-icon" aria-hidden="true">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <circle cx="8.5" cy="8.5" r="5.5"/>
-                            <path d="M17 17l-3.5-3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <circle cx="8.5" cy="8.5" r="5.5" />
+                            <path d="M17 17l-3.5-3.5" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </div>
                     <h3 class="process-title">Discovery</h3>
-                    <p class="process-desc">Entendemos o problema antes de falar em solução. Workshop estruturado, mapeamento de fluxos e definição de métricas de sucesso.</p>
+                    <p class="process-desc">Entendemos o problema antes de falar em solução. Workshop estruturado,
+                        mapeamento de fluxos e definição de métricas de sucesso.</p>
                     <ul class="process-deliverables">
                         <li>Escopo técnico documentado</li>
                         <li>Arquitetura proposta</li>
@@ -487,14 +543,16 @@
                 <div class="process-step reveal">
                     <div class="process-number">02</div>
                     <div class="process-icon" aria-hidden="true">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <rect x="2" y="10" width="5" height="8" rx="1"/>
-                            <rect x="7.5" y="6" width="5" height="12" rx="1"/>
-                            <rect x="13" y="2" width="5" height="16" rx="1"/>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <rect x="2" y="10" width="5" height="8" rx="1" />
+                            <rect x="7.5" y="6" width="5" height="12" rx="1" />
+                            <rect x="13" y="2" width="5" height="16" rx="1" />
                         </svg>
                     </div>
                     <h3 class="process-title">Arquitetura</h3>
-                    <p class="process-desc">Desenhamos a estrutura técnica completa. Stack, banco, integrações e infraestrutura definidos antes de codar.</p>
+                    <p class="process-desc">Desenhamos a estrutura técnica completa. Stack, banco, integrações e
+                        infraestrutura definidos antes de codar.</p>
                     <ul class="process-deliverables">
                         <li>Diagrama de arquitetura</li>
                         <li>Escolha de stack justificada</li>
@@ -505,14 +563,16 @@
                 <div class="process-step reveal">
                     <div class="process-number">03</div>
                     <div class="process-icon" aria-hidden="true">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <polyline points="4,7 2,10 4,13" stroke-linecap="round" stroke-linejoin="round"/>
-                            <polyline points="16,7 18,10 16,13" stroke-linecap="round" stroke-linejoin="round"/>
-                            <line x1="8" y1="4" x2="12" y2="16" stroke-linecap="round"/>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <polyline points="4,7 2,10 4,13" stroke-linecap="round" stroke-linejoin="round" />
+                            <polyline points="16,7 18,10 16,13" stroke-linecap="round" stroke-linejoin="round" />
+                            <line x1="8" y1="4" x2="12" y2="16" stroke-linecap="round" />
                         </svg>
                     </div>
                     <h3 class="process-title">Build</h3>
-                    <p class="process-desc">Desenvolvimento iterativo com sprints semanais. Código revisado, testado e documentado desde o primeiro commit.</p>
+                    <p class="process-desc">Desenvolvimento iterativo com sprints semanais. Código revisado, testado e
+                        documentado desde o primeiro commit.</p>
                     <ul class="process-deliverables">
                         <li>Demo semanal ao cliente</li>
                         <li>Cobertura de testes &gt; 80%</li>
@@ -523,14 +583,17 @@
                 <div class="process-step reveal">
                     <div class="process-number">04</div>
                     <div class="process-icon" aria-hidden="true">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M10 2c0 0 5 3 5 8v5H5v-5c0-5 5-8 5-8z" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M7 15v2M13 15v2" stroke-linecap="round"/>
-                            <path d="M5 17h10" stroke-linecap="round"/>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M10 2c0 0 5 3 5 8v5H5v-5c0-5 5-8 5-8z" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M7 15v2M13 15v2" stroke-linecap="round" />
+                            <path d="M5 17h10" stroke-linecap="round" />
                         </svg>
                     </div>
                     <h3 class="process-title">Deploy & Suporte</h3>
-                    <p class="process-desc">CI/CD do zero. Monitoramento em tempo real. Suporte pós-entrega com SLA claro e documentação completa.</p>
+                    <p class="process-desc">CI/CD do zero. Monitoramento em tempo real. Suporte pós-entrega com SLA
+                        claro e documentação completa.</p>
                     <ul class="process-deliverables">
                         <li>Pipeline CI/CD configurado</li>
                         <li>Monitoramento e alertas</li>
@@ -560,14 +623,16 @@
 
                 <a href="/blog/starting-style.html" class="blog-preview-card reveal">
                     <div class="blog-preview-card__cover">
-                        <img src="/assets/images/blog/starting-style.png" alt="" loading="lazy" width="600" height="338">
+                        <img src="/assets/images/blog/starting-style.png" alt="" loading="lazy" width="600"
+                            height="338">
                     </div>
                     <div class="blog-preview-card__body">
                         <div class="blog-preview-card__tags">
                             <span class="blog-tag">CSS</span>
                         </div>
                         <h3>@starting-style: animando elementos que entram no DOM com CSS puro</h3>
-                        <p>Chega de setTimeout para fingir uma transição de entrada. A regra CSS que define o estado inicial de um elemento antes da primeira renderização.</p>
+                        <p>Chega de setTimeout para fingir uma transição de entrada. A regra CSS que define o estado
+                            inicial de um elemento antes da primeira renderização.</p>
                         <span class="blog-preview-card__meta">31 mar 2026 · 6 min</span>
                     </div>
                 </a>
@@ -582,21 +647,24 @@
                             <span class="blog-tag">JavaScript</span>
                         </div>
                         <h3>Popover API: modais e tooltips nativos sem JavaScript</h3>
-                        <p>Um atributo HTML. Sem biblioteca. Com acessibilidade, light dismiss e top layer nativos do browser.</p>
+                        <p>Um atributo HTML. Sem biblioteca. Com acessibilidade, light dismiss e top layer nativos do
+                            browser.</p>
                         <span class="blog-preview-card__meta">24 mar 2026 · 6 min</span>
                     </div>
                 </a>
 
                 <a href="/blog/css-anchor-positioning.html" class="blog-preview-card reveal">
                     <div class="blog-preview-card__cover">
-                        <img src="/assets/images/blog/anchor-positioning.png" alt="" loading="lazy" width="600" height="338">
+                        <img src="/assets/images/blog/anchor-positioning.png" alt="" loading="lazy" width="600"
+                            height="338">
                     </div>
                     <div class="blog-preview-card__body">
                         <div class="blog-preview-card__tags">
                             <span class="blog-tag">CSS</span>
                         </div>
                         <h3>CSS Anchor Positioning: tooltips e dropdowns sem JavaScript</h3>
-                        <p>Fim dos cálculos de getBoundingClientRect. Posicione qualquer elemento relativo a outro com CSS puro.</p>
+                        <p>Fim dos cálculos de getBoundingClientRect. Posicione qualquer elemento relativo a outro com
+                            CSS puro.</p>
                         <span class="blog-preview-card__meta">17 mar 2026 · 7 min</span>
                     </div>
                 </a>
@@ -678,7 +746,10 @@
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Cada projeto tem escopo único — não trabalhamos com tabela de preços. O que fazemos é entender o problema antes de falar em número. Agende uma conversa gratuita e, com base no que você precisa construir, apresentamos uma proposta detalhada com escopo e investimento claros.
+                            Cada projeto tem escopo único — não trabalhamos com tabela de preços. O que fazemos é
+                            entender o problema antes de falar em número. Agende uma conversa gratuita e, com base no
+                            que você precisa construir, apresentamos uma proposta detalhada com escopo e investimento
+                            claros.
                         </div>
                     </div>
                 </div>
@@ -690,7 +761,9 @@
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Depende do projeto. Um site institucional ou landing page sai em cerca de 4 semanas. Plataformas com múltiplas integrações e funcionalidades demandam mais tempo — o prazo é definido junto com o escopo no início, sem estimativas no escuro.
+                            Depende do projeto. Um site institucional ou landing page sai em cerca de 4 semanas.
+                            Plataformas com múltiplas integrações e funcionalidades demandam mais tempo — o prazo é
+                            definido junto com o escopo no início, sem estimativas no escuro.
                         </div>
                     </div>
                 </div>
@@ -702,7 +775,10 @@
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Tudo começa com uma conversa. Você conta o que precisa, a gente entende o problema e apresenta um caminho. Se fizer sentido para os dois lados, iniciamos com a fase de Discovery: levantamento de requisitos, arquitetura e estimativa fundamentada — antes de qualquer linha de código.
+                            Tudo começa com uma conversa. Você conta o que precisa, a gente entende o problema e
+                            apresenta um caminho. Se fizer sentido para os dois lados, iniciamos com a fase de
+                            Discovery: levantamento de requisitos, arquitetura e estimativa fundamentada — antes de
+                            qualquer linha de código.
                         </div>
                     </div>
                 </div>
@@ -714,7 +790,10 @@
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Todo projeto inclui 30 dias de garantia após o go-live. Nesse período, corrigimos qualquer comportamento inesperado ou ajuste dentro do escopo acordado sem custo adicional. Para evolução e manutenção contínua após esse prazo, trabalhamos com contratos de suporte com SLA definido.
+                            Todo projeto inclui 30 dias de garantia após o go-live. Nesse período, corrigimos qualquer
+                            comportamento inesperado ou ajuste dentro do escopo acordado sem custo adicional. Para
+                            evolução e manutenção contínua após esse prazo, trabalhamos com contratos de suporte com SLA
+                            definido.
                         </div>
                     </div>
                 </div>
@@ -726,7 +805,11 @@
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Sim. Além de novos projetos, atuamos na evolução de sistemas legados — refatoração, migração tecnológica, otimização de performance e integração com novas ferramentas. O próprio fundador da Matrix é especialista em modernização de sistemas legados, com histórico de migrações incrementais sem downtime. Se você tem um sistema que precisa evoluir sem parar, a gente sabe como fazer isso com segurança.
+                            Sim. Além de novos projetos, atuamos na evolução de sistemas legados — refatoração, migração
+                            tecnológica, otimização de performance e integração com novas ferramentas. O próprio
+                            fundador da Matrix é especialista em modernização de sistemas legados, com histórico de
+                            migrações incrementais sem downtime. Se você tem um sistema que precisa evoluir sem parar, a
+                            gente sabe como fazer isso com segurança.
                         </div>
                     </div>
                 </div>
@@ -760,18 +843,22 @@
                     </div>
                     <div class="form-group">
                         <label for="project">Sobre o projeto</label>
-                        <textarea id="project" name="project" rows="5" placeholder="Conta pra gente sobre sua ideia, prazo e orçamento estimado..." required></textarea>
+                        <textarea id="project" name="project" rows="5"
+                            placeholder="Conta pra gente sobre sua ideia, prazo e orçamento estimado..."
+                            required></textarea>
                     </div>
                     <div class="form-group form-group--consent">
                         <label class="form-consent">
                             <input type="checkbox" name="_consent" required>
-                            <span>Li e concordo com a <a href="/politica-de-privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a></span>
+                            <span>Li e concordo com a <a href="/politica-de-privacidade.html" target="_blank"
+                                    rel="noopener">Política de Privacidade</a></span>
                         </label>
                     </div>
                     <button type="submit" class="btn btn--primary btn--full">
                         <span>Enviar mensagem</span>
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </button>
                 </form>
@@ -787,7 +874,8 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <a href="#" class="nav-logo">
-                        <img src="assets/images/logo.webp" alt="Matrix Logo" class="logo-img" width="36" height="36" loading="lazy">
+                        <img src="assets/images/logo.webp" alt="Matrix Logo" class="logo-img" width="36" height="36"
+                            loading="lazy">
                         <span class="logo-text">Matrix</span>
                     </a>
                     <p class="footer-tagline">Tecnologia e Inovação</p>
@@ -802,30 +890,29 @@
                     <a href="/blog/">Blog</a>
                 </div>
                 <div class="footer-social">
-                    <a href="https://www.instagram.com/matrixtecnologia.dev/" target="_blank" rel="noopener" aria-label="Instagram">
+                    <a href="https://www.instagram.com/matrixtecnologia.dev/" target="_blank" rel="noopener"
+                        aria-label="Instagram">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
                         </svg>
                     </a>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>CNPJ 57.744.307/0001-14 — Matrix Tecnologia e Inovação LTDA</p>
-                <p>&copy; <span id="copyright-year">2026</span> Matrix Tecnologia e Inovação. Todos os direitos reservados. &nbsp;·&nbsp; <a href="/politica-de-privacidade.html">Política de Privacidade</a></p>
+                <p>&copy; <span id="copyright-year">2026</span> Matrix Tecnologia e Inovação. Todos os direitos
+                    reservados. &nbsp;·&nbsp; <a href="/politica-de-privacidade.html">Política de Privacidade</a></p>
             </div>
         </div>
     </footer>
 
     <!-- WhatsApp FAB -->
-    <a
-        href="https://api.whatsapp.com/send?phone=5531994774186&text=Ol%C3%A1!%20Gostaria%20de%20conversar%20sobre%20um%20projeto."
-        class="whatsapp-fab"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Fale conosco pelo WhatsApp"
-    >
+    <a href="https://api.whatsapp.com/send?phone=5531994774186&text=Ol%C3%A1!%20Gostaria%20de%20conversar%20sobre%20um%20projeto."
+        class="whatsapp-fab" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
         </svg>
         <span class="whatsapp-fab__label">WhatsApp</span>
     </a>
@@ -845,4 +932,5 @@
 
     <script src="js/main.js"></script>
 </body>
+
 </html>
