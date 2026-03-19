@@ -8,32 +8,32 @@
   </url>
   <url>
     <loc>https://matrix-wheat-xi.vercel.app/blog/</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-03-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://matrix-wheat-xi.vercel.app/blog/starting-style.html</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>never</changefreq>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://matrix-wheat-xi.vercel.app/blog/popover-api.html</loc>
-    <lastmod>2026-03-24</lastmod>
-    <changefreq>never</changefreq>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://matrix-wheat-xi.vercel.app/blog/css-anchor-positioning.html</loc>
     <lastmod>2026-03-17</lastmod>
-    <changefreq>never</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://matrix-wheat-xi.vercel.app/blog/view-transitions-api.html</loc>
     <lastmod>2026-03-10</lastmod>
-    <changefreq>never</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 </urlset>
