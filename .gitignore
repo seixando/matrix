@@ -1,2 +1,3 @@
 .vercel
 Profile.pdf
+.env*.local
